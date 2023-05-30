@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TestingPrueba.Interfaces.Services;
+using TestingPrueba.Models.Input;
 using TestingPrueba.Models.Output;
 
 namespace TestingPrueba.Controllers
@@ -17,7 +18,14 @@ namespace TestingPrueba.Controllers
         {
 			_personaService = personaService;
 		}
-        [HttpGet]
+		[HttpPost]
+		[Route("CreatePersonaAsync")]
+		public async Task CreatePersonaAsync(PersonaInput personaInput)
+		{
+			await _personaService.CreatePersonaAsync(personaInput);
+		}
+
+		[HttpGet]
 		[Route("GetListPersonasAsync")]
 		public Task<List<PersonasDto>> GetListPersonasAsync()
 		{

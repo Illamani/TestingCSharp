@@ -13,7 +13,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TestingPrueba.Context;
+using TestingPrueba.Interfaces.Repository;
 using TestingPrueba.Interfaces.Services;
+using TestingPrueba.Repository;
 using TestingPrueba.Services;
 
 namespace TestingPrueba
@@ -31,6 +33,7 @@ namespace TestingPrueba
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddScoped<IPersonaService, PersonaService>();
+			services.AddScoped<IPersonaRepository, PersonaRepository>();
 			services.AddDbContextPool<AppDbContext>(
 				options => options.UseSqlServer(Configuration.GetConnectionString("PruebaTesting")));
 			services.AddControllers();

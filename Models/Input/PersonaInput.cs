@@ -1,6 +1,6 @@
-﻿namespace TestingPrueba.Models
+﻿namespace TestingPrueba.Models.Input
 {
-	public class Persona
+	public class PersonaInput
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
