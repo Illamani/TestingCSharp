@@ -12,11 +12,9 @@ namespace TestingPrueba.Services
 {
 	public class PersonaService : IPersonaService
 	{
-		private readonly AppDbContext _context;
 		private readonly IPersonaRepository _personaRepository;
-		public PersonaService(AppDbContext context, IPersonaRepository personaRepository)
+		public PersonaService(IPersonaRepository personaRepository)
         {
-            _context = context;
 			_personaRepository = personaRepository;
         }
         public async Task<List<PersonasDto>> GetListPersonasAsync()
